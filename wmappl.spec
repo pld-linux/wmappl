@@ -27,7 +27,9 @@ dla Doku WindowMakera.
 %patch -p1
 
 %build
-%{__make} OPTFLAGS="%{rpmcflags}"
+%{__make} \
+	OPTFLAGS="%{rpmcflags}" \
+	CC=%{__cc}
 
 %install
 rm -rf $RPM_BUILD_ROOT
