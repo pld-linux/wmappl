@@ -1,51 +1,7 @@
-diff -urN wmappl-0.6.orig/Makefile wmappl-0.6/Makefile
---- wmappl-0.6.orig/Makefile	2000-11-02 11:04:42.000000000 +0100
-+++ wmappl-0.6/Makefile	2003-09-18 03:34:47.754106200 +0200
-@@ -15,8 +15,11 @@
- CFLAGS  = -O2 -pedantic -Wall
- INCDIR  = -I/usr/X11R6/include/X11 -I/usr/X11R6/include
- LIBDIR  = -L/usr/X11R6/lib
--DESTDIR = /usr/X11R6/bin
--ICONDIR = /usr/share/icons/wmappl
-+DESTDIR =
-+PREFIX  = /usr
-+INSTALL_DIR = $(PREFIX)/share/wmappl
-+INSTALL_BIN = $(PREFIX)/bin
-+ICONDIR = $(INSTALL_DIR)/icons
- 
- # for linux
- LIBS   = -lXpm -lX11 -lXext
-@@ -38,18 +41,19 @@
- 	rm -f core
- 	rm -f $(TARGET)
- 
--install: $(TARGET)
--	install -c -s -m 0755 $(TARGET) $(DESTDIR)
--	install -d /usr/doc/wmappl-$(VERSION)
--	install -m 644 README LICENSE CHANGELOG sample.wmapplrc /usr/doc/wmappl-$(VERSION)
-+install: $(TARGET) install-icons
-+	install -d $(DESTDIR)$(INSTALL_BIN)
-+	install -c -s -m 0755 $(TARGET) $(DESTDIR)$(INSTALL_BIN)
-+#	install -d /usr/doc/wmappl-$(VERSION)
-+#	install -m 644 README LICENSE CHANGELOG sample.wmapplrc $(DESTDIR)/usr/doc/wmappl-$(VERSION)
- 
- remove:
- 	rm -rf /usr/doc/wmappl-$(VERSION)
- 	rm -f $(DESTDIR)/$(TARGET)
- 
- install-icons:
--	install -d $(ICONDIR)
--	install -m 644 -c icons/*.xpm $(ICONDIR)
-+	install -d $(DESTDIR)$(ICONDIR)
-+	install -m 644 -c icons/*.xpm $(DESTDIR)$(ICONDIR)
-   
- remove-icons:
--	rm -rf $(ICONDIR)  
-+	rm -rf $(ICONDIR)
-diff -urN wmappl-0.6.orig/args.h wmappl-0.6/args.h
---- wmappl-0.6.orig/args.h	2000-11-02 10:52:00.000000000 +0100
-+++ wmappl-0.6/args.h	2003-09-18 03:35:11.717463216 +0200
-@@ -29,7 +29,7 @@
+diff -urN wmappl-0.61.orig/args.h wmappl-0.61/args.h
+--- wmappl-0.61.orig/args.h	2002-03-21 09:51:14.000000000 +0100
++++ wmappl-0.61/args.h	2004-02-05 20:47:40.000000000 +0100
+@@ -28,7 +28,7 @@
  
  /* defaults macros */
  #define WMAPPLRC ".wmapplrc"
@@ -54,9 +10,9 @@ diff -urN wmappl-0.6.orig/args.h wmappl-0.6/args.h
  
  
  /* MACRO defining the path separator */
-diff -urN wmappl-0.6.orig/sample.wmapplrc wmappl-0.6/sample.wmapplrc
---- wmappl-0.6.orig/sample.wmapplrc	2000-11-02 10:59:51.000000000 +0100
-+++ wmappl-0.6/sample.wmapplrc	2003-09-18 03:34:47.755106048 +0200
+diff -urN wmappl-0.61.orig/sample.wmapplrc wmappl-0.61/sample.wmapplrc
+--- wmappl-0.61.orig/sample.wmapplrc	2002-03-21 09:39:45.000000000 +0100
++++ wmappl-0.61/sample.wmapplrc	2004-02-05 21:13:01.000000000 +0100
 @@ -57,7 +57,7 @@
  
  [wprefs]
