@@ -5,8 +5,8 @@ Comment[pl]=Program do uruchamiania aplikacji dla WM
 Exec=wmappl
 Terminal=false
 Type=Application
-Categories=X-Doclket;Utility;
-NotShownIn=GNOME;KDE;
+Categories=X-Doclket;
+NotShowIn=GNOME;KDE;
 Encoding=UTF-8
 # vi: encoding=utf-8
 
