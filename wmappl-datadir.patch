@@ -1,0 +1,11 @@
+--- wmappl-0.71/src/wmappl.c.orig	2004-05-13 04:20:32.000000000 +0200
++++ wmappl-0.71/src/wmappl.c	2004-06-10 16:47:39.000000000 +0200
+@@ -45,7 +45,7 @@
+ 
+ #define WMAPPLRC ".wmapplrc"
+ #define SYSWMAPPLRC "/etc/wmapplrc"
+-#define ICONPATH "/usr/share/icons/wmappl:/usr/share/pixmaps/mini"
++#define ICONPATH "/usr/share/wmappl"
+ 
+ #define SCROLL_WHEEL_UP   4
+ #define SCROLL_WHEEL_DOWN 5
