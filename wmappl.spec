@@ -1,14 +1,14 @@
 Summary:	Application launcher for the WindowMaker Dock
 Summary(pl):	Program do uruchamiania aplikacji dla Doku WindowMakera
 Name:		wmappl
-Version:	0.6
-Release:	2
+Version:	0.61
+Release:	1
 License:	GPL
 Group:		X11/Window Managers/Tools
-Source0:	http://www.upl.cs.wisc.edu/~charkins/wmappl/%{name}-%{version}.tar.gz
-# Source0-md5:	2625c90fe837cdacec93876e3cbc11b2
+Source0:	http://dl.sourceforge.net/wmappl/%{name}-%{version}.tar.gz
+# Source0-md5:	d9c5edcf858826e51a10bbc2a231618c
 Patch0:		%{name}-misc.patch
-URL:		http://www.upl.cs.wisc.edu/~charkins/wmappl.php
+URL:		http://wmappl.sourceforge.net/
 BuildRequires:	XFree86-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -30,16 +30,16 @@ dla Doku WindowMakera.
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/%{name}/icons}
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
-
+install wmappl $RPM_BUILD_ROOT%{_bindir}
+install icons/*.xpm $RPM_BUILD_ROOT%{_datadir}/%{name}/icons
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README CHANGELOG sample.wmapplrc
+%doc CHANGELOG README TODO sample.wmapplrc
 %attr(755,root,root) %{_bindir}/wmappl
-
-%{_datadir}/wmappl
+%{_datadir}/%{name}
