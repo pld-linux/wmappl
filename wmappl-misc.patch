@@ -1,0 +1,100 @@
+--- wmappl-0.2.pld/Makefile	Thu Oct 14 21:17:01 1999
++++ wmappl-0.2/Makefile	Sat Oct 30 20:11:03 1999
+@@ -1,28 +1,32 @@
+ INCLUDES = -I/usr/include -I /usr/X11R6/include/X11 
+ LIBDIR =-L/usr/X11R6/lib 
+ LIBS = -lX11 -lXpm -lXext
++OPTFLAGS = -O2
+ 
+-INSTALL_DIR = /usr/local/share/wmappl
+-INSTALL_BIN = /usr/local/bin
++DESTDIR	=
++PREFIX	= /usr/X11R6
++INSTALL_DIR = $(PREFIX)/share/wmappl
++INSTALL_BIN = $(PREFIX)/bin
+ 
+ TARGET = wmappl
+ OBJECTS =  wmappl.o
+ 
+ .c.o:
+-	${CC} -O2 -c -Wall ${INCLUDES} ${FLAGS} $< -o $*.o
++	${CC} ${OPTFLAGS} -c -Wall ${INCLUDES} ${FLAGS} $< -o $*.o
+ 
+ ${TARGET}: ${OBJECTS}
+-	${CC} -O2 -o ${TARGET} ${OBJECTS} ${LIBDIR} ${LIBS}
++	${CC} ${OPTFLAGS} -o ${TARGET} ${OBJECTS} ${LIBDIR} ${LIBS}
+ 
+ install:
+ 	-strip ./wmappl
+-	cp ./wmappl ${INSTALL_BIN}
+-	-mkdir ${INSTALL_DIR}
+-	cp ./wmapplrc.sample ${INSTALL_DIR}
+-	cp -R ./icons/ ${INSTALL_DIR}
+-	chmod -R a+r ${INSTALL_DIR}/*
+-	chmod a+x ${INSTALL_DIR}
+-	chmod a+x ${INSTALL_DIR}/icons
++	mkdir -p $(DESTDIR)$(INSTALL_BIN)
++	cp ./wmappl $(DESTDIR)$(INSTALL_BIN)
++	-mkdir -p $(DESTDIR)$(INSTALL_DIR)
++	cp ./wmapplrc.sample $(DESTDIR)$(INSTALL_DIR)
++	cp -R ./icons $(DESTDIR)$(INSTALL_DIR)
++#	chmod -R a+r ${INSTALL_DIR}/*
++#	chmod a+x ${INSTALL_DIR}
++#	chmod a+x ${INSTALL_DIR}/icons
+ 	
+ clean:
+ 	for i in ${OBJECTS}; do if [ -e $$i ] ; then rm $$i; fi; done 
+--- wmappl-0.2.pld/README	Thu Oct 14 21:17:01 1999
++++ wmappl-0.2/README	Sat Oct 30 20:13:43 1999
+@@ -47,8 +47,8 @@
+ 	Install the binary:
+ 		make install
+ 
+-	This will copy the binary to /usr/local/bin and the sample rc file
+-	and icon directory to /usr/local/share/wmappl.
++	This will copy the binary to /usr/X11R6/bin and the sample rc file
++	and icon directory to /usr/X11R6/share/wmappl.
+ 
+ 	That's it, each user will need to copy wmapplrc.sample to their
+ 	home directory as .wmapplrc or launch the program with the -f 
+@@ -60,8 +60,9 @@
+ 
+ 	usage:	wmappl [-f configfile] [-i iconpath] [-V]
+ 
+-	-f : specifies the config file default:~/.wmapplrc
++	-f : specifies the config file (default: ~/.wmapplrc)
+ 	-i : icons in the config file are prefixed with iconpath
++             (default: /usr/X11R6/share/wmappl/icons)
+ 	-d : debug mode (doesn't execute commands)
+ 	-V : display version information
+ 
+--- wmappl-0.2.pld/wmappl.c	Thu Oct 14 21:17:01 1999
++++ wmappl-0.2/wmappl.c	Sat Oct 30 20:16:20 1999
+@@ -533,6 +533,7 @@
+ 	fprintf(stderr, "\nusage\twmappl [-f configfile] [-i iconpath] [-V]\n");
+ 	fprintf(stderr, "\t\t-f : reads configfile rather than ~/.wmapplrc\n");
+ 	fprintf(stderr, "\t\t-i : prefixes icon filenames with iconpath\n");
++	fprintf(stderr, "\t\t     (default: /usr/X11R6/share/wmappl/icons)\n");
+ 	fprintf(stderr, "\t\t-d : debug mode (doesn't execute commands)\n");
+ 	fprintf(stderr, "\t\t-V : show version information\n");
+ 	exit(1);
+@@ -557,7 +558,7 @@
+ 	strcat(configfile, "/.wmapplrc");
+ 
+ 	/* set default icon path */
+-	iconpath[0]=0;
++	strcpy(iconpath, "/usr/X11R6/share/wmappl/icons");
+ 	
+ 	/* parse command line arguments */
+ 	for(i=1; i<argc; i++) {
+--- wmappl-0.2.pld/wmapplrc.sample	Thu Oct 14 21:17:01 1999
++++ wmappl-0.2/wmapplrc.sample	Sat Oct 30 20:17:04 1999
+@@ -3,7 +3,7 @@
+ #	[icon filename]	[command line to execute when clicked]
+ 
+ netscape.xpm	netscape & 	# comments allowed at end of lines too
+-WPrefs.xpm		/usr/X11R6/lib/GNUstep/Apps/WPrefs.app/WPrefs &
++WPrefs.xpm		/usr/X11R6/share/GNUstep/Apps/WPrefs.app/WPrefs &
+ xterm.xpm		nxterm -fg green -bg black \
+ 				-sb -geometry 80x35 &
+ 
