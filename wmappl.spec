@@ -11,7 +11,6 @@ URL:		http://www.pobox.com/~charkins/wmappl.html
 BuildRequires:	XFree86-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define 	_prefix 	/usr/X11R6
 
 %description
 WMAppl is a simple application launcher for the WindowMaker Dock.
