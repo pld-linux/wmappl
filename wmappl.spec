@@ -7,8 +7,9 @@ License:	GPL
 Group:		X11/Window Managers/Tools
 Group(de):	X11/Fenstermanager/Werkzeuge
 Group(pl):	X11/Zarz±dcy Okien/Narzêdzia
-Source0:	http://www.upl.cs.wisc.edu:80/%7Echarkins/wmappl/%{name}-%{version}.tar.gz
+Source0:	http://www.pobox.com/~charkins/wmappl/%{name}-%{version}.tar.gz
 Patch0:		%{name}-misc.patch
+URL:		http://www.pobox.com/~charkins/wmappl.html
 BuildRequires:	XFree86-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -40,7 +41,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc {README,CHANGELOG}.gz
+%doc *.gz
 %attr(755,root,root) %{_bindir}/wmappl
 
 %{_datadir}/wmappl
