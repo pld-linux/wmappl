@@ -9,7 +9,6 @@ Group(pl):	X11/Zarz±dcy Okien/Narzêdzia
 Source: 	http://www.upl.cs.wisc.edu:80/%7Echarkins/wmappl/%{name}-%{version}.tar.gz
 Patch:		wmappl-misc.patch
 BuildRequires:	XFree86-devel
-BuildRequires:	xpm-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define 	_prefix 	/usr/X11R6
