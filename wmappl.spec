@@ -5,9 +5,8 @@ Version:	0.6
 Release:	1
 License:	GPL
 Group:		X11/Window Managers/Tools
-#Source0:	http://www.upl.cs.wisc.edu/~charkins/wmappl/%{name}-%{version}.tar.gz
-Source0:	%{name}-%{version}.tar.gz
-# Source0-md5:	18f5990ebceaf39ff6df2ef24cdab2c7
+Source0:	http://www.upl.cs.wisc.edu/~charkins/wmappl/%{name}-%{version}.tar.gz
+# Source0-md5:	2625c90fe837cdacec93876e3cbc11b2
 Patch0:		%{name}-misc.patch
 URL:		http://www.upl.cs.wisc.edu/~charkins/wmappl.php
 BuildRequires:	XFree86-devel
