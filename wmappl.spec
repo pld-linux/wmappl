@@ -2,7 +2,7 @@ Summary:	Application launcher for the WindowMaker Dock
 Summary(pl):	Program do uruchamiania aplikacji dla Doku WindowMakera
 Name:		wmappl
 Version:	0.71
-Release:	2
+Release:	3
 License:	GPL
 Group:		X11/Window Managers/Tools
 Source0:	http://dl.sourceforge.net/wmappl/%{name}-%{version}.tar.gz
@@ -46,4 +46,4 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/wmappl
 %{_datadir}/%{name}
 %{_desktopdir}/docklets/*
-%{_mandir}/*
+%{_mandir}/*/*
