@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=WMAppl
+Comment=Application launcher for the WM
+Comment[pl]=Program do uruchamiania aplikacji dla WM
+Exec=wmappl
+Terminal=false
+Type=Application
+Encoding=UTF-8
+# vi: encoding=utf-8
+
+
