@@ -5,8 +5,6 @@ Version:	0.2
 Release:	2
 License:	GPL
 Group:		X11/Window Managers/Tools
-Group(de):	X11/Fenstermanager/Werkzeuge
-Group(pl):	X11/Zarz±dcy Okien/Narzêdzia
 Source0:	http://www.pobox.com/~charkins/wmappl/%{name}-%{version}.tar.gz
 Patch0:		%{name}-misc.patch
 URL:		http://www.pobox.com/~charkins/wmappl.html
