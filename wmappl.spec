@@ -5,13 +5,13 @@ Version:	0.2
 Release:	2
 License:	GPL
 Group:		X11/Window Managers/Tools
-Source0:	http://www.pobox.com/~charkins/wmappl/%{name}-%{version}.tar.gz
-# Source0-md5:	1de3313b30c4d74f57ffca7784126990
+#Source0:	http://www.upl.cs.wisc.edu/~charkins/wmappl/%{name}-%{version}.tar.gz
+Source0:	%{name}-%{version}.tar.gz
+# Source0-md5:	18f5990ebceaf39ff6df2ef24cdab2c7
 Patch0:		%{name}-misc.patch
-URL:		http://www.pobox.com/~charkins/wmappl.html
+URL:		http://www.upl.cs.wisc.edu/~charkins/wmappl.php
 BuildRequires:	XFree86-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
 
 %description
 WMAppl is a simple application launcher for the WindowMaker Dock.
