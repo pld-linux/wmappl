@@ -6,6 +6,7 @@ Release:	2
 License:	GPL
 Group:		X11/Window Managers/Tools
 Source0:	http://www.pobox.com/~charkins/wmappl/%{name}-%{version}.tar.gz
+# Source0-md5:	1de3313b30c4d74f57ffca7784126990
 Patch0:		%{name}-misc.patch
 URL:		http://www.pobox.com/~charkins/wmappl.html
 BuildRequires:	XFree86-devel
