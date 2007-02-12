@@ -1,5 +1,5 @@
 Summary:	Application launcher for the WindowMaker Dock
-Summary(pl):	Program do uruchamiania aplikacji dla Doku WindowMakera
+Summary(pl.UTF-8):   Program do uruchamiania aplikacji dla Doku WindowMakera
 Name:		wmappl
 Version:	0.71
 Release:	3
@@ -16,7 +16,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 WMAppl is a simple application launcher for the WindowMaker Dock.
 
-%description -l pl
+%description -l pl.UTF-8
 WMAppl jest prostym programem do uruchamiania aplikacji, przeznaczonym
 dla Doku WindowMakera.
 
