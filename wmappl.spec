@@ -1,5 +1,5 @@
 Summary:	Application launcher for the WindowMaker Dock
-Summary(pl.UTF-8):   Program do uruchamiania aplikacji dla Doku WindowMakera
+Summary(pl.UTF-8):	Program do uruchamiania aplikacji dla Doku WindowMakera
 Name:		wmappl
 Version:	0.71
 Release:	3
